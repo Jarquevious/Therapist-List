@@ -1,0 +1,10 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Therapists</h1>
+    {% for therapist in therapists %}
+        <h2>{{ therapist.name }}</h2>
+        <small>{{ therapist.description }}</small>
+    {% endfor %}
+{% endblock %}

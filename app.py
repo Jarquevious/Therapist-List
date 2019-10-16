@@ -1,33 +1,22 @@
 from flask import Flask, render_template
-# import os
-# from bson.objectid import ObjectId
-# from pymongo import MongoClient
-# from flask import Flask, render_template, request, redirect, url_for
-# from datetime import datetime
+import os
+from bson.objectid import ObjectId
+from pymongo import MongoClient
+from flask import Flask, render_template, request, redirect, url_for
+from datetime import datetime
 
-# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Therapy')
-# client = MongoClient(host=host)
-# db = client.Therapy
-#therapists = db.therapists
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Therapy')
+client = MongoClient(host=host)
+db = client.Therapy
+therapists = db.therapists
 
 app = Flask(__name__)
-@app.route('/')
+
+
+@app.route('/therapists')
 def index():
-    """Return homepage."""
-    return render_template('home.html', msg='Flask is Cool!!')
-
-# therapists = [
-
-#     {
-#         'First name': ''
-#         'Last name': ''
-#         'Address': ''
-#         'Zip code': ''
-#         'State': ''
-#         'Description': ''
-#         'Specialty': ''
-#     }
-# ]
+    """Show all therapists."""
+    return render_template('index.html', therapists=therapists.find())
 
 
 
