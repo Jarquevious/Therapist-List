@@ -13,27 +13,49 @@ therapists = db.therapists
 app = Flask(__name__)
 
 
+
+@app.route('/')
+def home():
+    """Home Page."""
+    return render_template('home.html')
+
 @app.route('/therapists')
 def index():
     """Show all therapists."""
     return render_template('index.html', therapists=therapists.find())
 
+@app.route('/therapists/add')
+def therapists_add():
+    """Add a new therapist."""
+    return render_template('therapists_add.html')
 
 
-
-# @app.route('/home')
-# def home():
-#     therapists = db.therapists.find()
-#     return render_template('home.html', therapsits=therapists)
-
-# @app.route('/add')
-# def add():
-#     return render_template(therapist_list.html)
-
-
-# @app.route('/therapist_list')
-# def therapist_list():
-#     #return render_template('/therpist_list.html')
+@app.route('/therapists', methods=['POST'])
+def therapist_submit():
+    """Submit a new therapist."""
+    therapist = {
+        'name': request.form.get('name'),
+        'phone': request.form.get('phone'),
+        'email': request.form.get('email'),
+        'street': request.form.get('street'),
+        'city': request.form.get('city'),
+        'state': request.form.get('state'),
+        'zip': request.form.get('zip'),
+        'status': request.form.get('status'),
+        'billing': request.form.get('billing'),
+        'services': request.form.get('services'),
+        'ages': request.form.get('ages'),
+        'languages': request.form.get('languages'),
+        'profession': request.form.get('profession'),
+        'phone': request.form.get('phone'),
+        'approach': request.form.get('approach'),
+        'issues': request.form.get('issues')
+        
+        
+        
+         }
+    therapists.insert_one(therapist)
+    return redirect(url_for('index'))
 
 
 

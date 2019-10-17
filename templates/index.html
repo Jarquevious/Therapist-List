@@ -3,8 +3,25 @@
 
 {% block content %}
     <h1>Therapists</h1>
+
+    <a href='/therapists/add'>Add Therapist</a>
+
     {% for therapist in therapists %}
         <h2>{{ therapist.name }}</h2>
-        <small>{{ therapist.description }}</small>
+        <small>{{ therapist.phone }}</small>
+        <small>{{ therapist.email }}</small>
+        <small>{{ therapist.street }}</small>
+        <small>{{ therapist.city }}</small>
+        <small>{{ therapist.state }}</small>
+        <small>{{ therapist.zip }}</small>
+        <small>{{ therapist.status }}</small>
+        <small>{{ therapist.billing }}</small>
+        <small>{{ therapist.services }}</small>
+        <small>{{ therapist.ages }}</small>
+        <small>{{ therapist.language }}</small>
+        <small>{{ therapist.profession }}</small>
+        <small>{{ therapist.approach }}</small>
+        <small>{{ therapist.issues }}</small>
+
     {% endfor %}
 {% endblock %}
