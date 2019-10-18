@@ -1,0 +1,24 @@
+<!-- templates/therapists_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back to Home</a>
+
+<h1> {{ therapist.name }} </h1>
+<small>{{ therapist.phone }}</small>
+<small>{{ therapist.email }}</small>
+<small>{{ therapist.street }}</small>
+<small>{{ therapist.city }}</small>
+<small>{{ therapist.state }}</small>
+<small>{{ therapist.zip }}</small>
+<small>{{ therapist.status }}</small>
+<small>{{ therapist.billing }}</small>
+<small>{{ therapist.services }}</small>
+<small>{{ therapist.ages }}</small>
+<small>{{ therapist.language }}</small>
+<small>{{ therapist.profession }}</small>
+<small>{{ therapist.approach }}</small>
+<small>{{ therapist.issues }}</small>
+
+</form></p>
+{% endblock %}

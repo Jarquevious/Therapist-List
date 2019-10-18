@@ -1,14 +1,15 @@
-<!-- templates/therapists_new.html -->
+<!-- templates/therapists_edit.html -->
 {% extends 'base.html' %}
 
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <form method='POST' action='/therapists'>
+        <form method='POST' action='/therapists/{{therapist._id}}'>
+            <input type='hidden' name='_method' value='PUT'/>
             {% include 'partials/therapists_form.html' %}
             <!-- BUTTON -->
             <div class='form-group'>
-                <button class='btn btn-primary' type='submit'>Save Therapist</button>
+                <button class='btn btn-primary' type='submit'>Save Therapistt</button>
             </div>
         </form>
     </div>

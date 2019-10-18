@@ -4,10 +4,10 @@
 {% block content %}
     <h1>Therapists</h1>
 
-    <a href='/therapists/add'>Add Therapist</a>
+    <a href='/'>Back to Home</a>
 
     {% for therapist in therapists %}
-        <h2>{{ therapist.name }}</h2>
+        <h2> {{ therapist.name }} </h2>
         <small>{{ therapist.phone }}</small>
         <small>{{ therapist.email }}</small>
         <small>{{ therapist.street }}</small>
@@ -23,5 +23,11 @@
         <small>{{ therapist.approach }}</small>
         <small>{{ therapist.issues }}</small>
 
+<!-- Edit button -->
+        <p><a class='btn btn-primary' href='therapists/{{ therapist._id }}/edit'>Edit</a></p>
+
+<!-- Delete button -->
+        <p><form method='POST' action='/therapists/{{ therapist._id }}/delete'>
+        <button type='submit'>Delete</button>
     {% endfor %}
 {% endblock %}
